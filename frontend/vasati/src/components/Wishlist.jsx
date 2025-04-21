@@ -125,7 +125,7 @@ function Wishlist() {
       try {
         setLoading(true);
         const response = await axios.post(
-          "http://localhost:5000/api/advertise/wishlist",
+          "https://nammavasati-backend.onrender.com/advertise/wishlist",
           { wishlist }
         );
         setPgs(response.data.map((pg) => ({ ...pg, currentImageIndex: 0 })));
@@ -163,7 +163,7 @@ function Wishlist() {
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
 
     try {
-      await axios.post("http://localhost:5000/api/wishlist/update-wishlist", {
+      await axios.post("https://nammavasati-backend.onrender.com/wishlist/update-wishlist", {
         email: userEmail,
         wishlisted_ads: updatedWishlist,
       });
@@ -254,7 +254,7 @@ function Wishlist() {
                                   &#8249;
                                 </button>
                                 <img
-                                  src={`http://localhost:5000/api/advertise/images/${
+                                  src={`https://nammavasati-backend.onrender.com/advertise/images/${
                                     ad.images[ad.currentImageIndex]
                                   }`}
                                   alt={`PG Image ${ad.currentImageIndex + 1}`}

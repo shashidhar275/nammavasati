@@ -186,7 +186,7 @@ function SearchedPage() {
   const fetchPGs = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/advertise/pgs?search=${search}`
+        `https://nammavasati-backend.onrender.com/advertise/pgs?search=${search}`
       );
 
       let filteredPGs = response.data;
@@ -280,7 +280,7 @@ function SearchedPage() {
 
     try {
       const pgResponse = await axios.get(
-        `http://localhost:5000/api/advertise/pgs?search=${input}`
+        `https://nammavasati-backend.onrender.com/advertise/pgs?search=${input}`
       );
 
       const pgSuggestions = pgResponse.data.map((pg) => ({
@@ -614,7 +614,7 @@ function SearchedPage() {
                           &#8249;
                         </button>
                         <img
-                          src={`http://localhost:5000/api/advertise/images/${
+                          src={`https://nammavasati-backend.onrender.com/advertise/images/${
                             ad.images[ad.currentImageIndex]
                           }`}
                           alt={`PG Image ${ad.currentImageIndex + 1}`}

@@ -118,7 +118,7 @@ function Advertise() {
   const fetchAdDetails = async (adId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/advertise/${adId}`
+        `https://nammavasati-backend.onrender.com/advertise/${adId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch ad details");
@@ -150,7 +150,7 @@ function Advertise() {
         data.images.forEach((imageName, index) => {
           if (index < 6) {
             newImages[index] = {
-              preview: `http://localhost:5000/api/advertise/images/${imageName}`, // Construct full URL
+              preview: `https://nammavasati-backend.onrender.com/advertise/images/${imageName}`, // Construct full URL
               file: null,
             };
           }
@@ -247,7 +247,7 @@ function Advertise() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/advertise/${adId}`,
+        `https://nammavasati-backend.onrender.com/advertise/${adId}`,
         {
           method: "PUT", // ✅ Correct method for updating
           body: formData, // No need to set headers for FormData

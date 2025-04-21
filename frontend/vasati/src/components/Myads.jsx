@@ -137,7 +137,7 @@ function Myads() {
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
 
     try {
-      await axios.post("http://localhost:5000/api/wishlist/update-wishlist", {
+      await axios.post("https://nammavasati-backend.onrender.com/wishlist/update-wishlist", {
         email: localStorage.getItem("userEmail"),
         wishlisted_ads: updatedWishlist,
       });
@@ -155,7 +155,7 @@ function Myads() {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:5000/api/advertise/myads?email=${userEmail}`
+          `https://nammavasati-backend.onrender.com/advertise/myads?email=${userEmail}`
         );
         setPgs(response.data.map((pg) => ({ ...pg, currentImageIndex: 0 })));
         setPgDetails(response.data);
@@ -212,7 +212,7 @@ function Myads() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/advertise/${adId}`,
+        `https://nammavasati-backend.onrender.com/advertise/${adId}`,
         {
           method: "DELETE",
         }
@@ -260,7 +260,7 @@ function Myads() {
                                   &#8249;
                                 </button>
                                 <img
-                                  src={`http://localhost:5000/api/advertise/images/${
+                                  src={`https://nammavasati-backend.onrender.com/advertise/images/${
                                     ad.images[ad.currentImageIndex]
                                   }`}
                                   alt={`PG Image ${ad.currentImageIndex + 1}`}

@@ -56,7 +56,7 @@ function Profile() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/advertise/${adId}`,
+        `https://nammavasati-backend.onrender.com/advertise/${adId}`,
         {
           method: "DELETE",
         }
@@ -206,7 +206,7 @@ function Profile() {
 
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/advertise/myads?email=${userEmail}`
+          `https://nammavasati-backend.onrender.com/advertise/myads?email=${userEmail}`
         );
         setPgs(response.data);
       } catch (error) {

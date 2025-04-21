@@ -14,7 +14,7 @@ const ChatList = () => {
     const fetchConversations = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/chat/conversations/${userEmail}`,
+          `https://nammavasati-backend.onrender.com/chat/conversations/${userEmail}`,
           {
             headers: { "Cache-Control": "no-cache" },
           }
@@ -71,7 +71,7 @@ const ChatList = () => {
     try {
       const msgData = { senderEmail: userEmail, receiverEmail, message };
 
-      await axios.post("http://localhost:5000/api/chat/send", msgData);
+      await axios.post("https://nammavasati-backend.onrender.com/chat/send", msgData);
       socket.emit("sendMessage", msgData);
 
       setReplyMessages((prev) => ({ ...prev, [receiverEmail]: "" }));

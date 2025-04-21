@@ -62,7 +62,7 @@ function LandingPage() {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/wishlist?email=${userEmail}`
+        `https://nammavasati-backend.onrender.com/wishlist?email=${userEmail}`
       );
       setWishlist(response.data.wishlisted_ads || []);
       localStorage.setItem(
@@ -86,7 +86,7 @@ function LandingPage() {
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
 
     try {
-      await axios.post("http://localhost:5000/api/wishlist/update-wishlist", {
+      await axios.post("https://nammavasati-backend.onrender.com/wishlist/update-wishlist", {
         email: localStorage.getItem("userEmail"),
         wishlisted_ads: updatedWishlist,
       });
@@ -97,7 +97,7 @@ function LandingPage() {
 
   const fetchPGs = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/advertise"); // Adjust API URL
+      const response = await axios.get("https://nammavasati-backend.onrender.com/advertise"); // Adjust API URL
       setPgList(response.data);
       console.log(response.data);
     } catch (error) {
@@ -118,7 +118,7 @@ function LandingPage() {
     try {
       // Fetch PG name suggestions
       const pgResponse = await axios.get(
-        `http://localhost:5000/api/advertise/pgsbyname?search=${input}`
+        `https://nammavasati-backend.onrender.com/advertise/pgsbyname?search=${input}`
       );
 
       const pgSuggestions = pgResponse.data.map((pg) => ({
@@ -237,7 +237,7 @@ function LandingPage() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/chat/send", {
+      await axios.post("https://nammavasati-backend.onrender.com/chat/send", {
         senderEmail: userEmail,
         receiverEmail: ownerEmail,
         message: "Please reserve this PG for me",
@@ -364,7 +364,7 @@ function LandingPage() {
                         {ad.images.map((image, index) => (
                           <img
                             key={index}
-                            src={`http://localhost:5000/api/advertise/images/${
+                            src={`https://nammavasati-backend.onrender.com/advertise/images/${
                               ad.images[activeImageIndex[ad._id] || 0]
                             }`}
                             alt={ad.pgName}

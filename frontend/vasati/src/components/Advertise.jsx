@@ -181,7 +181,7 @@ function Advertise() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/advertise",
+        "https://nammavasati-backend.onrender.com/advertise",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
