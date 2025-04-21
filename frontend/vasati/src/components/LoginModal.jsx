@@ -240,13 +240,13 @@ function LoginModal({ onClose, onLoginSuccess }) {
       let response;
       if (isLogin) {
         // Login request
-        response = await axios.post("http://localhost:5000/auth/login", {
+        response = await axios.post("https://nammavasati-backend.onrender.com/auth/login", {
           email,
           password,
         });
       } else {
         // Signup request
-        response = await axios.post("http://localhost:5000/auth/signup", {
+        response = await axios.post("https://nammavasati-backend.onrender.com/auth/signup", {
           SupEmail,
           mobileNumber,
           SupPassword,
@@ -289,7 +289,7 @@ function LoginModal({ onClose, onLoginSuccess }) {
     try {
       // Optional: Backend notification for password reset
       const response = await axios.post(
-        "http://localhost:5000/auth/send-reset-email",
+        "https://nammavasati-backend.onrender.com/auth/send-reset-email",
         {
           email: FpEmail,
         },

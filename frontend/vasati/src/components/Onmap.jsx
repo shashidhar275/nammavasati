@@ -46,7 +46,7 @@ function Onmap() {
 
   const fetchPGs = async () => {
     try {
-      const response = await axios.get("https://nammavasati-backend.onrender.com/advertise"); // Adjust API URL
+      const response = await axios.get("https://nammavasati-backend.onrender.com/api/advertise"); // Adjust API URL
       setPgs(response.data);
       console.log(response.data);
     } catch (error) {
@@ -63,7 +63,7 @@ function Onmap() {
     try {
       // Fetch PGs
       const pgResponse = await axios.get(
-        `https://nammavasati-backend.onrender.com/advertise/pgsbyname?search=${input}`
+        `https://nammavasati-backend.onrender.com/api/advertise/pgsbyname?search=${input}`
       );
 
       const pgSuggestions = pgResponse.data.map((pg) => ({

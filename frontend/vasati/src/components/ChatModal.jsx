@@ -12,7 +12,7 @@ function ChatModal({ roomId, senderEmail, receiverEmail, onClose }) {
     const fetchMessages = async () => {
       try {
         const response = await axios.get(
-          `https://nammavasati-backend.onrender.com/chat/${senderEmail}/${receiverEmail}`
+          `https://nammavasati-backend.onrender.com/api/chat/${senderEmail}/${receiverEmail}`
         );
         setMessages(response.data);
       } catch (error) {
@@ -57,7 +57,7 @@ function ChatModal({ roomId, senderEmail, receiverEmail, onClose }) {
         message: newMessage,
       };
 
-      await axios.post("https://nammavasati-backend.onrender.com/chat/send", msgData);
+      await axios.post("https://nammavasati-backend.onrender.com/api/chat/send", msgData);
       socket.emit("sendMessage", msgData); // Emit real-time event
 
       setMessages((prevMessages) => [...prevMessages, msgData]);

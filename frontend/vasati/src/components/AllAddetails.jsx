@@ -115,7 +115,7 @@ function AllAddetails() {
     localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
 
     try {
-      await axios.post("https://nammavasati-backend.onrender.com/wishlist/update-wishlist", {
+      await axios.post("https://nammavasati-backend.onrender.com/api/wishlist/update-wishlist", {
         email: localStorage.getItem("userEmail"),
         wishlisted_ads: updatedWishlist,
       });
@@ -128,7 +128,7 @@ function AllAddetails() {
     const fetchPgDetails = async () => {
       try {
         const response = await axios.get(
-          `https://nammavasati-backend.onrender.com/advertise/ads`
+          `https://nammavasati-backend.onrender.com/api/advertise/ads`
         );
         setPgs(response.data.map((pg) => ({ ...pg, currentImageIndex: 0 })));
         setPgDetails(response.data);
@@ -199,7 +199,7 @@ function AllAddetails() {
                             &#8249;
                           </button>
                           <img
-                            src={`https://nammavasati-backend.onrender.com/advertise/images/${
+                            src={`https://nammavasati-backend.onrender.com/api/advertise/images/${
                               ad.images[ad.currentImageIndex]
                             }`}
                             alt={`PG Image ${ad.currentImageIndex + 1}`}

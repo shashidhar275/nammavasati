@@ -37,7 +37,7 @@ function AdDetails() {
     const fetchAdDetails = async () => {
       try {
         const response = await axios.get(
-          `https://nammavasati-backend.onrender.com/advertise/${adId}`
+          `https://nammavasati-backend.onrender.com/api/advertise/${adId}`
         );
         setAd(response.data);
         setLoading(false);
@@ -68,7 +68,7 @@ function AdDetails() {
       return;
     }
     try {
-      await axios.post("https://nammavasati-backend.onrender.com/chat/send", {
+      await axios.post("https://nammavasati-backend.onrender.com/api/chat/send", {
         senderEmail: userEmail,
         receiverEmail: ownerEmail,
         message: "Please reserve this PG for me",
@@ -127,7 +127,7 @@ function AdDetails() {
                   &#8249;
                 </button>
                 <img
-                  src={`https://nammavasati-backend.onrender.com/advertise/images/${ad.images[currentImageIndex]}`}
+                  src={`https://nammavasati-backend.onrender.com/api/advertise/images/${ad.images[currentImageIndex]}`}
                   alt={`PG Image ${currentImageIndex + 1}`}
                   className="ad-details-image"
                 />

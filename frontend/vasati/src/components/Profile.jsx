@@ -56,7 +56,7 @@ function Profile() {
 
     try {
       const response = await fetch(
-        `https://nammavasati-backend.onrender.com/advertise/${adId}`,
+        `https://nammavasati-backend.onrender.com/api/advertise/${adId}`,
         {
           method: "DELETE",
         }
@@ -86,7 +86,7 @@ function Profile() {
       try {
         // Fetch mobile number
         const response = await axios.get(
-          `http://localhost:5000/auth/getMobileNumber/${userEmail}`
+          `https://nammavasati-backend.onrender.com/auth/getMobileNumber/${userEmail}`
         );
         setMobileNumber(response.data.mobileNumber || "");
 
@@ -118,7 +118,7 @@ function Profile() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/updateMobileNumber",
+        "https://nammavasati-backend.onrender.com/auth/updateMobileNumber",
         {
           email: userEmail,
           mobileNumber: editedMobileNumber,
@@ -141,7 +141,7 @@ function Profile() {
   const fetchProfileImage = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/auth/profileImage/${userEmail}`,
+        `https://nammavasati-backend.onrender.com/auth/profileImage/${userEmail}`,
         {
           responseType: "blob",
         }
@@ -181,7 +181,7 @@ function Profile() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/uploadProfileImage",
+        "https://nammavasati-backend.onrender.com/auth/uploadProfileImage",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -206,7 +206,7 @@ function Profile() {
 
       try {
         const response = await axios.get(
-          `https://nammavasati-backend.onrender.com/advertise/myads?email=${userEmail}`
+          `https://nammavasati-backend.onrender.com/api/advertise/myads?email=${userEmail}`
         );
         setPgs(response.data);
       } catch (error) {
