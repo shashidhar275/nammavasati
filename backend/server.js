@@ -13,7 +13,7 @@ const chatRoutes = require("./routes/chat");
 const Chat = require("./models/Chat"); // Import Chat model
 
 const app = express();
-const PORT = 5000; // Unified port for Express & WebSockets
+const PORT = process.env.PORT || 5000; // Unified port for Express & WebSockets
 
 // Middleware
 app.use(cors());
